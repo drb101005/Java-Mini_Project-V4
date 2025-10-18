@@ -1,9 +1,11 @@
-package com.studentforum.backend.dto;
+package com.studentforum.backend.dto.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class CommentRequest {
-    private String content;
-    private Long answerId;
+@AllArgsConstructor
+public class AuthResponse {
+    private String token;
+    private UserResponse user;
 }
