@@ -1,0 +1,83 @@
+.navbar {
+  background-color: #2c3e50;
+  color: white;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-logo:hover {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.nav-link.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.nav-link.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.nav-link.btn-secondary {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.nav-link.btn-secondary:hover {
+  background-color: white;
+  color: #2c3e50;
+}
+
+.nav-link.btn-logout {
+  background-color: transparent;
+  color: #e74c3c;
+}
+
+.nav-link.btn-logout:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
