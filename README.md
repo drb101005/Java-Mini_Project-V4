@@ -1,140 +1,60 @@
-🎓 Student Discussion Forum
-A modern, full-stack academic Q&A platform where students can ask questions, share knowledge, and collaborate to find the best solutions through community voting and engagement.
+# 🎓 Student Discussion Forum
 
-Show Image
-Show Image
-Show Image
-Show Image
-Show Image
+A modern full-stack Q&A platform where students can ask questions, share knowledge, and collaborate through community voting and engagement.
 
-📋 Table of Contents
-Features
-Tech Stack
-System Architecture
-Prerequisites
-Installation
-Running the Application
-Project Structure
-API Documentation
-Screenshots
-Contributing
-Team
-License
-✨ Features
-🔐 Authentication & User Management
-Secure user registration and login with JWT authentication
-User profiles with bio, department, academic year, and skills
-Profile editing and customization
-Admin user support
-💬 Questions & Answers
-Post questions with titles, descriptions, and tags
-Browse all questions with filtering and sorting options
-Search functionality across questions
-View count tracking
-Real-time question feed
-🎯 Community Engagement
-Upvote/downvote answers
-Accept best answers (by question author)
-Comment on answers for discussions
-Tag-based categorization
-Vote tracking to prevent duplicate voting
-🎨 User Interface
-Clean, modern design with pure CSS
-Responsive layout for all devices
-Smooth animations and transitions
-Intuitive navigation
-Modal-based question details
-🔮 Additional Features
-User reputation system (accepted answers count)
-Skills showcase on profiles
-Question statistics (views, answers, votes)
-Protected routes for authenticated users
-Real-time UI updates
-🛠️ Tech Stack
-Frontend
-React 18.2.0 - UI library
-React Router 6.20.1 - Client-side routing
-Axios 1.6.2 - HTTP client
-React Hook Form 7.49.2 - Form handling
-Zod 3.22.4 - Schema validation
-Lucide React 0.263.1 - Icons
-Vite 5.0.8 - Build tool
-Pure CSS - Styling (no frameworks)
-Backend
-Spring Boot 3.2.0 - Application framework
-Spring Security - Authentication & authorization
-Spring Data JPA - Database abstraction
-MySQL 8.0 - Relational database
-JWT (jjwt 0.11.5) - Token-based authentication
-Lombok - Boilerplate reduction
-Maven - Dependency management
-Database
-MySQL 8.0
-8 interconnected tables
-Foreign key relationships
-Unique constraints for data integrity
-🏗️ System Architecture
-┌─────────────────┐         ┌─────────────────┐         ┌─────────────────┐
-│                 │  HTTP   │                 │  JDBC   │                 │
-│  React Frontend │ ◄─────► │  Spring Boot    │ ◄─────► │  MySQL Database │
-│   (Port 3000)   │  REST   │   (Port 8080)   │         │   (Port 3306)   │
-│                 │   API   │                 │         │                 │
-└─────────────────┘         └─────────────────┘         └─────────────────┘
-        │                           │
-        │                           │
-        ▼                           ▼
-   - React Router            - JWT Authentication
-   - Axios Interceptors      - Spring Security
-   - Context API             - JPA Repositories
-   - Pure CSS                - REST Controllers
-Authentication Flow
-User Login → Spring Security → JWT Token Generated
-                    ↓
-          Token stored in localStorage
-                    ↓
-    Every API request includes JWT in header
-                    ↓
-       Backend validates token → Grants/Denies access
-📦 Prerequisites
-Before you begin, ensure you have the following installed:
+## 📸 Features
 
-Required Software
-Java Development Kit (JDK) 17 or higher
-Download JDK
-Verify: java -version
-Node.js 18.x or higher and npm
-Download Node.js
-Verify: node -v and npm -v
-MySQL 8.0 or higher
-Download MySQL
-MySQL Workbench (recommended for GUI)
-Verify: mysql --version
-Maven (usually bundled with IDE)
-Verify: mvn -version
-Optional (Recommended)
-Git for version control
-Visual Studio Code or IntelliJ IDEA (IDE)
-Postman for API testing
-🚀 Installation
-Step 1: Clone the Repository
-bash
-# Clone the project
-git clone https://github.com/yourusername/student-discussion-forum.git
+- 🔐 **Secure Authentication** - JWT-based login and registration
+- 💬 **Q&A System** - Post questions, provide answers, and earn reputation
+- 🎯 **Community Voting** - Upvote/downvote answers and accept best solutions
+- 💭 **Comments** - Discuss answers with the community
+- 🏷️ **Tag System** - Categorize and filter questions by topics
+- 👤 **User Profiles** - Showcase skills, bio, and academic information
+- 🔍 **Search & Filter** - Find questions quickly with advanced filtering
 
-# Navigate to project directory
-cd student-discussion-forum
-Step 2: Database Setup
-2.1. Start MySQL Server
-Open MySQL Workbench or use terminal
-Connect to your MySQL server (default: localhost:3306)
-2.2. Create Database
-sql
-CREATE DATABASE student_forum;
-USE student_forum;
-2.3. Create Tables
-Run the following SQL script to create all tables:
+---
 
-sql
+## 🛠️ Tech Stack
+
+**Frontend:** React, React Router, Axios, Vite  
+**Backend:** Spring Boot, Spring Security, JWT, JPA  
+**Database:** MySQL 8.0
+
+---
+
+## ⚙️ Prerequisites
+
+Install these before starting:
+
+- **Java 17+** - [Download](https://www.oracle.com/java/technologies/downloads/)
+- **Node.js 18+** - [Download](https://nodejs.org/)
+- **MySQL 8.0+** - [Download](https://dev.mysql.com/downloads/)
+- **Maven** (usually included with IDE)
+
+---
+
+## 🚀 Quick Start Guide
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/drb101005/Java-Mini_Project-V4.git
+cd Java-Mini_Project-V4
+```
+
+### Step 2: Setup Database
+
+1. **Start MySQL** and open MySQL Workbench or terminal
+
+2. **Create the database:**
+   ```sql
+   CREATE DATABASE student_forum;
+   USE student_forum;
+   ```
+
+3. **Run this SQL script** to create all tables:
+
+```sql
 -- Users table
 CREATE TABLE users (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -216,421 +136,226 @@ CREATE TABLE votes (
     FOREIGN KEY (answer_id) REFERENCES answers(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-2.4. Verify Tables Created
-sql
-SHOW TABLES;
--- Should show 8 tables
-Step 3: Backend Setup
-3.1. Navigate to Backend Directory
-bash
-cd backend
-3.2. Configure Database Connection
-Open src/main/resources/application.properties and update:
+```
 
-properties
+4. **Verify tables created:**
+   ```sql
+   SHOW TABLES;  -- Should show 8 tables
+   ```
+
+### Step 3: Configure Backend
+
+1. **Navigate to backend folder:**
+   ```bash
+   cd backend
+   ```
+
+2. **Open** `src/main/resources/application.properties`
+
+3. **Update these settings** with your MySQL credentials:
+
+```properties
 # Database Configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/student_forum
 spring.datasource.username=root
 spring.datasource.password=YOUR_MYSQL_PASSWORD
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # JPA Configuration
 spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
 # Server Configuration
 server.port=8080
 
-# JWT Configuration (Change this to a secure secret key)
-jwt.secret=your-256-bit-secret-key-make-it-at-least-32-characters-long
+# JWT Configuration (use a secure secret key)
+jwt.secret=your-secret-key-must-be-at-least-32-characters-long-for-security
 jwt.expiration=86400000
-Important: Replace YOUR_MYSQL_PASSWORD with your actual MySQL password!
+```
 
-3.3. Install Dependencies
-bash
-# Using Maven Wrapper (recommended)
+**Important:** Replace `YOUR_MYSQL_PASSWORD` with your actual MySQL password!
+
+### Step 4: Run Backend
+
+```bash
+# Install dependencies and run
 ./mvnw clean install
-
-# Or if you have Maven installed globally
-mvn clean install
-3.4. Run Backend Server
-bash
-# Using Maven Wrapper
 ./mvnw spring-boot:run
 
-# Or using Maven
+# Or if you have Maven installed globally:
+mvn clean install
 mvn spring-boot:run
-Expected Output:
+```
 
-Started BackendApplication in X seconds (JVM running for Y)
+**Success!** You should see:
+```
+Started BackendApplication in X seconds
 Tomcat started on port(s): 8080 (http)
-✅ Backend is now running at: http://localhost:8080
+```
 
-Step 4: Frontend Setup
-Open a NEW terminal window (keep backend running).
+Backend is now running at: **http://localhost:8080**
 
-4.1. Navigate to Frontend Directory
-bash
+### Step 5: Run Frontend
+
+**Open a NEW terminal** (keep backend running)
+
+```bash
+# Navigate to frontend folder
 cd frontend
-4.2. Install Dependencies
-bash
-npm install
-This will install all required packages including React, React Router, Axios, etc.
 
-4.3. Run Frontend Development Server
-bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-Expected Output:
+```
 
-VITE v5.0.8  ready in X ms
+**Success!** You should see:
+```
+VITE v5.0.8 ready in X ms
+➜ Local: http://localhost:3000/
+```
 
-➜  Local:   http://localhost:3000/
-➜  Network: use --host to expose
-✅ Frontend is now running at: http://localhost:3000
+Frontend is now running at: **http://localhost:3000**
 
-🎮 Running the Application
-Access the Application
-Open your browser
-Navigate to: http://localhost:3000
-You should see the Student Discussion Forum homepage
-Create Your First Account
-Click "Sign Up" in the navbar
-Fill in the registration form:
-Full Name: Your Name
-Email: your.email@example.com
-Password: (at least 6 characters)
-Department: Computer Science
-Academic Year: 3rd Year
-Click "Register"
-You'll be automatically logged in and redirected to the homepage
-Post Your First Question
-Click "Ask Question" button
-Fill in:
-Title: "How do I implement binary search in Java?"
-Description: Detailed explanation of what you need
-Tags: "java, algorithms, data-structures"
-Click "Post Your Question"
-Your question appears on the homepage!
-Try Other Features
-✅ Answer a question - Click on any question card, write an answer
-✅ Vote on answers - Use upvote/downvote buttons
-✅ Accept an answer - Mark the best answer (as question author)
-✅ Comment - Add comments to answers
-✅ Search & Filter - Use sidebar to filter by tags or sort
-✅ Edit Profile - Click your profile, add bio and skills
-📁 Project Structure
-student-discussion-forum/
-│
-├── backend/                          # Spring Boot Backend
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/studentforum/backend/
-│   │   │   │   ├── config/          # Security & JWT configuration
-│   │   │   │   │   ├── SecurityConfig.java
-│   │   │   │   │   └── JwtAuthenticationFilter.java
-│   │   │   │   │
-│   │   │   │   ├── controller/      # REST API endpoints
-│   │   │   │   │   ├── AuthController.java
-│   │   │   │   │   ├── QuestionController.java
-│   │   │   │   │   ├── AnswerController.java
-│   │   │   │   │   ├── CommentController.java
-│   │   │   │   │   └── UserController.java
-│   │   │   │   │
-│   │   │   │   ├── model/           # Database entities
-│   │   │   │   │   ├── User.java
-│   │   │   │   │   ├── Question.java
-│   │   │   │   │   ├── Answer.java
-│   │   │   │   │   ├── Comment.java
-│   │   │   │   │   ├── Tag.java
-│   │   │   │   │   ├── Vote.java
-│   │   │   │   │   └── Skill.java
-│   │   │   │   │
-│   │   │   │   ├── repository/      # Database access layer
-│   │   │   │   │   ├── UserRepository.java
-│   │   │   │   │   ├── QuestionRepository.java
-│   │   │   │   │   ├── AnswerRepository.java
-│   │   │   │   │   ├── CommentRepository.java
-│   │   │   │   │   ├── TagRepository.java
-│   │   │   │   │   ├── VoteRepository.java
-│   │   │   │   │   └── SkillRepository.java
-│   │   │   │   │
-│   │   │   │   ├── service/         # Business logic
-│   │   │   │   │   ├── AuthService.java
-│   │   │   │   │   ├── JwtService.java
-│   │   │   │   │   ├── UserService.java
-│   │   │   │   │   ├── QuestionService.java
-│   │   │   │   │   ├── AnswerService.java
-│   │   │   │   │   └── CommentService.java
-│   │   │   │   │
-│   │   │   │   ├── dto/             # Data Transfer Objects
-│   │   │   │   │   ├── LoginRequest.java
-│   │   │   │   │   ├── RegisterRequest.java
-│   │   │   │   │   ├── QuestionRequest.java
-│   │   │   │   │   ├── AnswerRequest.java
-│   │   │   │   │   ├── CommentRequest.java
-│   │   │   │   │   └── response/
-│   │   │   │   │       ├── AuthResponse.java
-│   │   │   │   │       ├── UserResponse.java
-│   │   │   │   │       └── QuestionResponse.java
-│   │   │   │   │
-│   │   │   │   └── BackendApplication.java
-│   │   │   │
-│   │   │   └── resources/
-│   │   │       └── application.properties
-│   │   │
-│   │   └── test/                    # Unit tests
-│   │
-│   ├── pom.xml                      # Maven dependencies
-│   └── mvnw                         # Maven wrapper
-│
-├── frontend/                        # React Frontend
-│   ├── public/                      # Static files
-│   ├── src/
-│   │   ├── api/                     # API configuration
-│   │   │   └── axios.js
-│   │   │
-│   │   ├── components/              # Reusable components
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── QuestionCard.jsx
-│   │   │   ├── QuestionDetails.jsx
-│   │   │   ├── AnswerCard.jsx
-│   │   │   ├── CommentSection.jsx
-│   │   │   ├── Filters.jsx
-│   │   │   └── AISummary.jsx
-│   │   │
-│   │   ├── context/                 # Global state management
-│   │   │   └── AuthContext.jsx
-│   │   │
-│   │   ├── pages/                   # Page components
-│   │   │   ├── Home.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   ├── AskQuestion.jsx
-│   │   │   └── Profile.jsx
-│   │   │
-│   │   ├── styles/                  # CSS files
-│   │   │   ├── global.css
-│   │   │   ├── navbar.css
-│   │   │   ├── questions.css
-│   │   │   ├── forms.css
-│   │   │   └── profile.css
-│   │   │
-│   │   ├── utils/                   # Helper functions
-│   │   │   └── helpers.js
-│   │   │
-│   │   ├── App.jsx                  # Main app component
-│   │   └── main.jsx                 # Entry point
-│   │
-│   ├── index.html                   # HTML template
-│   ├── package.json                 # NPM dependencies
-│   └── vite.config.js               # Vite configuration
-│
-└── README.md                        # This file
-📡 API Documentation
-Base URL
-http://localhost:8080/api
-Authentication Endpoints
-Register User
-http
-POST /api/auth/register
-Content-Type: application/json
+---
 
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "department": "Computer Science",
-  "academicYear": "3rd Year"
-}
+## 🎮 Using the Application
 
-Response: 200 OK
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": { ... }
-}
-Login
-http
-POST /api/auth/login
-Content-Type: application/json
+### 1. Access the App
+Open your browser and go to: **http://localhost:3000**
 
-{
-  "email": "john@example.com",
-  "password": "password123"
-}
+### 2. Create an Account
+- Click **"Sign Up"** in the navbar
+- Fill in your details:
+  - Full Name
+  - Email
+  - Password (minimum 6 characters)
+  - Department
+  - Academic Year
+- Click **"Register"**
 
-Response: 200 OK
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": { ... }
-}
-Get Current User
-http
-GET /api/auth/me
-Authorization: Bearer {token}
+### 3. Ask Your First Question
+- Click **"Ask Question"** button
+- Fill in:
+  - Title: e.g., "How to implement binary search in Java?"
+  - Description: Detailed explanation
+  - Tags: e.g., "java, algorithms, data-structures"
+- Click **"Post Question"**
 
-Response: 200 OK
-{
-  "id": 1,
-  "email": "john@example.com",
-  "name": "John Doe",
-  ...
-}
-Question Endpoints
-Get All Questions
-http
-GET /api/questions
+### 4. Explore Features
+- ✅ Answer questions
+- ✅ Vote on answers (upvote/downvote)
+- ✅ Accept best answers (as question author)
+- ✅ Add comments to answers
+- ✅ Search and filter questions
+- ✅ Edit your profile and add skills
 
-Response: 200 OK
-[
-  {
-    "id": 1,
-    "title": "How to implement binary search?",
-    "content": "...",
-    "tags": ["java", "algorithms"],
-    "views": 42,
-    ...
-  }
-]
-Create Question
-http
-POST /api/questions
-Authorization: Bearer {token}
-Content-Type: application/json
+---
 
-{
-  "title": "How to use Spring Security?",
-  "content": "Detailed question...",
-  "tags": ["spring", "security"]
-}
+## 🐛 Troubleshooting
 
-Response: 200 OK
-{ ... }
-Get Question by ID
-http
-GET /api/questions/{id}
-Increment View Count
-http
-PUT /api/questions/{id}/view
-Answer Endpoints
-Get Answers for Question
-http
-GET /api/answers/question/{questionId}
-Create Answer
-http
-POST /api/answers
-Authorization: Bearer {token}
-Content-Type: application/json
+### Backend won't start
 
-{
-  "content": "Here's how to solve it...",
-  "questionId": 1
-}
-Vote on Answer
-http
-POST /api/answers/{id}/vote
-Authorization: Bearer {token}
-Content-Type: application/json
+**Issue:** Port 8080 already in use
 
-{
-  "voteType": 1  // 1 for upvote, -1 for downvote
-}
-Accept Answer
-http
-PUT /api/answers/{id}/accept
-Authorization: Bearer {token}
-Comment Endpoints
-Get Comments for Answer
-http
-GET /api/comments/answer/{answerId}
-Create Comment
-http
-POST /api/comments
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "content": "Great explanation!",
-  "answerId": 1
-}
-User Endpoints
-Get User Profile
-http
-GET /api/users/{id}
-Update User Profile
-http
-PUT /api/users/{id}
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "bio": "Updated bio...",
-  "skills": ["Java", "React", "MySQL"]
-}
-📸 Screenshots
-Homepage
-Show Image
-Browse all questions with filtering and search
-
-Question Details
-Show Image
-View full question with answers and comments
-
-Ask Question
-Show Image
-Post new questions with tags
-
-User Profile
-Show Image
-View and edit user profiles
-
-🐛 Troubleshooting
-Common Issues
-Backend won't start - Port 8080 already in use
-bash
-# Windows - Find and kill process
+```bash
+# Windows
 netstat -ano | findstr :8080
-taskkill /PID <PID> /F
+taskkill /PID <PID_NUMBER> /F
 
-# Linux/Mac
+# Mac/Linux
 lsof -ti:8080 | xargs kill -9
-Frontend won't start - Port 3000 already in use
-bash
-# Kill the process or change port in vite.config.js
-server: {
-  port: 3001  // Use different port
-}
-Database connection failed
-Verify MySQL is running
-Check username/password in application.properties
-Ensure database student_forum exists
-Test connection in MySQL Workbench
-CORS errors in browser
-Verify backend is running on port 8080
-Check SecurityConfig.java has correct CORS configuration
-Clear browser cache
-JWT token expired
-Tokens expire after 24 hours
-Log out and log back in
-Check jwt.expiration in application.properties
-Build errors in backend
-bash
-# Clean and rebuild
-./mvnw clean install -DskipTests
-NPM install errors
-bash
-# Clear cache and reinstall
-npm cache clean --force
-rm -rf node_modules package-lock.json
-npm install
-🧪 Testing
-Backend Testing
-bash
-cd backend
-./mvnw test
-API Testing with cURL
-bash
-# Register
+```
+
+### Frontend won't start
+
+**Issue:** Port 3000 already in use
+
+Edit `vite.config.js` and change the port:
+```javascript
+export default defineConfig({
+  server: {
+    port: 3001  // Use a different port
+  }
+})
+```
+
+### Database connection failed
+
+- ✅ Verify MySQL is running
+- ✅ Check username/password in `application.properties`
+- ✅ Ensure database `student_forum` exists
+- ✅ Test connection in MySQL Workbench
+
+### JWT token expired
+
+- Tokens expire after 24 hours
+- Simply log out and log back in
+
+---
+
+## 📁 Project Structure
+
+```
+Java-Mini_Project-V4/
+├── backend/                    # Spring Boot Backend
+│   ├── src/main/java/
+│   │   ├── config/            # Security & JWT config
+│   │   ├── controller/        # REST API endpoints
+│   │   ├── model/             # Database entities
+│   │   ├── repository/        # Data access layer
+│   │   ├── service/           # Business logic
+│   │   └── dto/               # Data transfer objects
+│   └── src/main/resources/
+│       └── application.properties
+│
+└── frontend/                   # React Frontend
+    ├── src/
+    │   ├── api/               # API configuration
+    │   ├── components/        # Reusable components
+    │   ├── context/           # Global state
+    │   ├── pages/             # Page components
+    │   └── styles/            # CSS files
+    └── package.json
+```
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user
+
+### Questions
+- `GET /api/questions` - Get all questions
+- `POST /api/questions` - Create question
+- `GET /api/questions/{id}` - Get question by ID
+- `PUT /api/questions/{id}/view` - Increment view count
+
+### Answers
+- `GET /api/answers/question/{questionId}` - Get answers for question
+- `POST /api/answers` - Create answer
+- `POST /api/answers/{id}/vote` - Vote on answer
+- `PUT /api/answers/{id}/accept` - Accept answer
+
+### Comments
+- `GET /api/comments/answer/{answerId}` - Get comments
+- `POST /api/comments` - Create comment
+
+### Users
+- `GET /api/users/{id}` - Get user profile
+- `PUT /api/users/{id}` - Update user profile
+
+---
+
+## 🧪 Testing
+
+### Test with cURL
+
+```bash
+# Register a user
 curl -X POST http://localhost:8080/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{"email":"test@test.com","password":"password123","name":"Test User"}'
@@ -640,79 +365,47 @@ curl -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"test@test.com","password":"password123"}'
 
-# Get questions
+# Get all questions
 curl http://localhost:8080/api/questions
-Manual Testing Checklist
- User registration
- User login
- Post question
- Post answer
- Upvote/downvote
- Accept answer
- Post comment
- Edit profile
- Search questions
- Filter by tags
-🤝 Contributing
-We welcome contributions! Here's how you can help:
+```
 
-Fork the repository
-Create a feature branch
-bash
-   git checkout -b feature/AmazingFeature
-Commit your changes
-bash
-   git commit -m 'Add some AmazingFeature'
-Push to the branch
-bash
-   git push origin feature/AmazingFeature
-Open a Pull Request
-Development Guidelines
-Follow existing code style
-Write meaningful commit messages
-Add comments for complex logic
-Test your changes thoroughly
-Update documentation if needed
-👥 Team
-Project Members
-Member 1 - Core Architecture & Authentication
-Member 2 - User Management System
-Member 3 - Q&A Functionality
-Member 4 - Community Features & UI
-Contact
-Project Repository: GitHub
-Report Issues: Issues Page
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
-🙏 Acknowledgments
-Spring Boot Documentation
-React Documentation
-MySQL Documentation
-Stack Overflow Community
-All open-source contributors
-🔮 Future Enhancements
- Email verification for registration
- Forgot password functionality
- AI-powered answer summaries (OpenAI/Gemini integration)
- Real-time notifications with WebSockets
- Markdown support in questions/answers
- File attachment uploads
- Advanced reputation system
- Badges and achievements
- Question bookmarking
- Private messaging between users
- Dark mode theme
- Mobile app (React Native)
-📊 Project Statistics
-Lines of Code: ~8,000+
-Components: 15+ React components
-API Endpoints: 20+ REST endpoints
-Database Tables: 8 interconnected tables
-Development Time: 2-3 weeks
-Team Size: 1 members
-<div align="center">
-⭐ Star this repo if you found it helpful!
-Made with ❤️ by the Student Discussion Forum Team
+## 🤝 Contributing
 
-</div>
+Contributions are welcome!
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`
+3. Commit your changes: `git commit -m 'Add AmazingFeature'`
+4. Push to the branch: `git push origin feature/AmazingFeature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] Email verification
+- [ ] Password reset functionality
+- [ ] Real-time notifications with WebSockets
+- [ ] Markdown support
+- [ ] File attachments
+- [ ] Advanced reputation system
+- [ ] Dark mode
+- [ ] Mobile app
+
+---
+
+## 📞 Support
+
+Having issues? Please check the [Troubleshooting](#-troubleshooting) section or open an issue on GitHub.
+
+**Made with ❤️ by the Student Discussion Forum Team**
+
+⭐ Star this repo if you find it helpful!
