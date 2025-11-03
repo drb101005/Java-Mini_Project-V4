@@ -1,3 +1,8 @@
+// 🛡️ SecurityConfig.java
+// Configures Spring Security for the entire backend — managing authentication and CORS rules.
+// Enables JWT-based stateless sessions, disables CSRF, and defines which API routes are public.
+// Integrates JwtAuthenticationFilter to validate tokens on every request for secure access control.
+
 package com.studentforum.backend.config;
 
 import jakarta.servlet.http.HttpServletResponse;

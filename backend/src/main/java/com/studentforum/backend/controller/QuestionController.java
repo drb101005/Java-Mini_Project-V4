@@ -1,3 +1,8 @@
+// ❓ QuestionController.java
+// Exposes REST API endpoints for creating, fetching, and managing questions.
+// Connects frontend requests to the QuestionService layer and handles view tracking & tag retrieval.
+// Central controller managing all Q&A-related operations in the backend.
+
 package com.studentforum.backend.controller;
 
 import com.studentforum.backend.dto.QuestionRequest;

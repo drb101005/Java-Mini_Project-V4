@@ -1,3 +1,8 @@
+// 🔑 JwtService.java
+// Handles creation, validation, and extraction of JWT tokens for secure authentication.
+// Generates signed tokens using a secret key and verifies their integrity on each request.
+// Core of the stateless login system ensuring trusted communication between client and server.
+
 package com.studentforum.backend.service;
 
 import io.jsonwebtoken.Claims;

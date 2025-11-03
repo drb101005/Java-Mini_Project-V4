@@ -1,3 +1,8 @@
+// 💬 QuestionDetails.jsx
+// Displays a full question with all its answers, tags, and metadata inside a modal view.
+// Allows logged-in users to post new answers and question authors to accept the best one.
+// Handles API calls for fetching, posting, and updating answers, along with view tracking.
+
 import { X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'

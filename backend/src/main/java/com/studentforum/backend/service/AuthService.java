@@ -1,3 +1,8 @@
+// 🔐 AuthService.java
+// Manages core authentication logic — user registration, login, and token-based validation.
+// Encrypts passwords with BCrypt and generates JWTs for secure session handling.
+// Bridges communication between controllers, repositories, and JWT services for user access flow.
+
 package com.studentforum.backend.service;
 
 import com.studentforum.backend.dto.LoginRequest;

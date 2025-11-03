@@ -1,3 +1,8 @@
+// 🌐 axios.js
+// Configures Axios for all backend API calls with a common base URL.
+// Automatically attaches JWT tokens to requests and handles 401 (unauthorized) responses.
+// Ensures secure and consistent communication between React frontend and Spring Boot backend.
+
 import axios from 'axios'
 
 const api = axios.create({

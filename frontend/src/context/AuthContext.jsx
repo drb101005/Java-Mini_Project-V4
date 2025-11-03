@@ -1,3 +1,8 @@
+// 🔐 AuthContext.jsx
+// Manages global authentication state across the React app.
+// Handles login, register, logout, and auto-fetching the current user using JWT.
+// Acts as the bridge between frontend UI and backend authentication APIs.
+
 import { createContext, useState, useEffect, useContext } from 'react'
 import api from '../api/axios'
 

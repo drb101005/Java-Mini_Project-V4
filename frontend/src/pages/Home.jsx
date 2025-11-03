@@ -1,3 +1,8 @@
+// 🏠 Home.jsx
+// Displays all questions fetched from the backend with search, filter, and sort options.
+// Integrates components like Filters, QuestionCard, and QuestionDetails for full Q&A interaction.
+// Acts as the main homepage where users explore, search, and open questions dynamically.
+
 import { useState, useEffect } from 'react'
 import { Search } from 'lucide-react'
 import api from '../api/axios'
