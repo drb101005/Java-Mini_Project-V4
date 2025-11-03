@@ -28,7 +28,7 @@ const AskQuestion = () => {
     e.preventDefault()
     setError('')
 
-    if (formData.title.length < 10) {
+    if (formData.title.length < 5) {
       setError('Title must be at least 10 characters')
       return
     }

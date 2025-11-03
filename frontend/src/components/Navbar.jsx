@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          Student Forum
+          Student Query Hub
         </Link>
 
         <div className="navbar-links">
